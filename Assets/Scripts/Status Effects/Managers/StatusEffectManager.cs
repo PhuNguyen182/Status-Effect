@@ -47,7 +47,7 @@ namespace StatusEffects.Managers
             {
                 if (!TryFindEffect(effect, out var foundEffect))
                 {
-                    effect.OnStop += () => RemoveEffect(effect);
+                    effect.Remove = () => RemoveEffect(effect);
                     effect.PlayCombatEffect(pos, rot, parent);
                     effect.Start();
                     effects.Add(effect);
